@@ -1,0 +1,9 @@
+body{
+    background-color: #7071E8 ;
+}
+
+.flex-me{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
