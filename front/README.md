@@ -1,70 +1,34 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+ Projet SyncSport
+Ce projet est une application web construite avec Node.js pour le backend et React.js pour le frontend. Il permet de gérer des actualités, avec des fonctionnalités d'affichage, de création, de modification et de suppression d'articles.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Installation
+Clonez ce dépôt sur votre machine locale.
+Accédez au dossier backend et exécutez npm install pour installer les dépendances du backend.
+Accédez au dossier frontend et exécutez npm install pour installer les dépendances du frontend.
+Configuration
+Backend
+Frontend
+Assurez-vous que le backend est en cours d'exécution et que la configuration d'URL dans le fichier frontend/src/config.js est correcte pour pointer vers votre serveur backend.
+Utilisation
+Backend
+Accédez au dossier backend.
+Exécutez npm start pour démarrer le serveur backend.
+Le serveur devrait démarrer sur le port spécifié dans votre fichier .env.
+Frontend
+Accédez au dossier frontend.
+Exécutez npm start pour démarrer le serveur de développement du frontend.
+L'application devrait automatiquement s'ouvrir dans votre navigateur par défaut.
+Routes
+Frontend
+/: Page d'accueil affichant les dernières actualités.
+/allnews: Page affichant toutes les actualités disponibles.
+/news/:id: Page affichant les détails d'une actualité spécifique.
+/adminlogin: Page de connexion pour les administrateurs. Utilisez les identifiants admin et password !
+/gestion-actus: Page de tableau de bord pour la gestion des actualités.
+/modif-actus/:id: Page de formulaire pour modifier une actualité spécifique.
+*: Page d'erreur 404 pour les routes non définies.
+Technologies Utilisées
+Backend: Node.js, Express.js, MongoDB
+Frontend: React.js, React Router
