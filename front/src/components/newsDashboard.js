@@ -32,6 +32,10 @@ function NewsDashboard() {
               Liste de toutes les actualités avec la possibilité de les modifier ou de les supprimer.
             </p>
           </div>
+          <Link to={`/add-news`}
+            className="text-white mr-3 bg-green-950 p-3 rounded-lg font-bold">
+              Ajouter une Actu
+          </Link>
         </div>
         <div className="mt-8 flow-root">
           <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">

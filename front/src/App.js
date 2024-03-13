@@ -11,6 +11,7 @@ import {
   Route,
 } from "react-router-dom";
 import UpdateNewsForm from './components/updateNewsForm';
+import AddNewsForm from './components/addNewsForm';
 import Error404 from './components/404';
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route exact path="/modif-actus/:id">
           <UpdateNewsForm />
+        </Route>
+        <Route exact path="/add-news">
+          <AddNewsForm />
         </Route>
         <Route path="*">
           <Error404 />

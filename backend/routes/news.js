@@ -103,7 +103,7 @@ router.put('/update/:id', (req, res) => {
       console.error('Error updating news:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
-  });
+});
   
 
 
