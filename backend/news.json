@@ -1,5 +1,13 @@
 [
   {
+    "id": 0,
+    "title": "Mbappé direction le Real de Madrid ?",
+    "content": "Kylian Mbappé a annoncé jeudi 15 février 2024 à la direction du Paris Saint-Germain son intention de quitter le club cet été, mettant fin à un long feuilleton de plusieurs mois, sans préciser toutefois sa destination future. Après sept saisons au PSG, Mbappé, devenu le meilleur buteur de l'histoire du club, va donc découvrir un nouvel horizon. Le Real Madrid, le club qui fait rêver le joueur depuis son enfance, fait désormais figure de grand favori pour l'accueillir.A la fin de la saison, Kylian Mbappé va plier bagage après sept saisons au PSG !",
+    "author": "Mouhamadou Soumare",
+    "date": "2024-03-09",
+    "image": "http://localhost:3000/assets/mbappe_real.png"
+  },
+  {
     "id": 1,
     "title": "Mbappé direction le Real de Madrid ?",
     "content": "Kylian Mbappé a annoncé jeudi 15 février 2024 à la direction du Paris Saint-Germain son intention de quitter le club cet été, mettant fin à un long feuilleton de plusieurs mois, sans préciser toutefois sa destination future. Après sept saisons au PSG, Mbappé, devenu le meilleur buteur de l'histoire du club, va donc découvrir un nouvel horizon. Le Real Madrid, le club qui fait rêver le joueur depuis son enfance, fait désormais figure de grand favori pour l'accueillir.A la fin de la saison, Kylian Mbappé va plier bagage après sept saisons au PSG !",
@@ -96,21 +104,17 @@
     "image": "https://example.com/image1.jpg"
   },
   {
-    "title": "gfcgd",
-    "content": "egfg",
-    "author": "fdgcv",
+    "id": 13,
+    "title": "Choeurtis et le N on va surveiller ça ",
+    "content": "Dans les coulouirs de l'EEMI le Camerounais attaque perpetuellement sans répis espérant trouver une faille dans le système défensif de l'opposition ! Cependant la tache est difficile et il est de plus en plus acculé alors que le match arrive à terme !! Va t'il décrocher une victoire ou retourner sur le banc de touche ?",
+    "author": "",
     "date": "2024-03-14"
   },
   {
-    "title": "jkhjghf",
-    "content": "dfhgvbhn,jnhvgh",
-    "author": "klnjbhvcvbn",
-    "date": "2024-03-16"
-  },
-  {
-    "title": "iuyt@",
-    "content": "tfhjnknjhg",
-    "author": "sdfhbjkljkbhjvghcf",
-    "date": "2024-03-09"
+    "id": 14,
+    "title": "zafaz",
+    "content": "fdazfd",
+    "author": "azfazef",
+    "date": "2024-03-14"
   }
 ]

@@ -44,8 +44,8 @@ export default function NewsList() {
   const paginate = pageNumber => setCurrentPage(pageNumber);
   
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="bg-white py-24 sm:py-2">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-12">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Les actus du moments</h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
@@ -65,7 +65,7 @@ export default function NewsList() {
             className="bg-gray-900 text-white px-4 py-2 rounded-md"
             onClick={toggleSort}
           >
-            {sortByDate === 'desc' ? 'Trier par date croissante' : 'Trier par date décroissante'}
+            {sortByDate === 'desc' ? 'Voir les plus récents' : 'Voir les plus anciens'}
           </button>
         </div>
 
@@ -100,7 +100,7 @@ export default function NewsList() {
                     </a>
                   </h3>
                   <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.content}</p>
-                  <Link className="bg-green-950 p-1 rounded-lg font-bold mt-4 text-white text-center text-bold" to={`/news/${index}`}>Voir les détails</Link>
+                  <Link className="bg-green-700 hover:bg-green-900 p-1 rounded-lg font-bold mt-4 text-white text-center text-bold" to={`/news/${index}`}>Voir les détails</Link>
 
                 </div>
                 <div className="relative mt-8 flex items-center gap-x-4">

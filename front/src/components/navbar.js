@@ -47,7 +47,7 @@ export default function Navbar (){
       </div>
       {isAuthenticated ? (
        <div className="hidden lg:flex lg:flex-1 lg:justify-end  items-center	">
-        <a href="#" className="text-sm  leading-6 text-white mr-3 bg-green-950 p-3 rounded-lg font-bold 	">
+        <a href="#" className="text-sm  leading-6 text-white mr-3 bg-green-700 hover:bg-green-900 p-3 rounded-lg font-bold 	">
           Profil Admin
         </a>
         <a href="/gestion-actus" className="text-sm font-semibold leading-6 text-gray-900">
@@ -95,7 +95,7 @@ export default function Navbar (){
             <div className="py-6">
             {isAuthenticated ? (
                 <div className="flex-column lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" className="text-sm  leading-6 text-white mr-3 bg-green-950 p-3 rounded-lg font-bold	">
+                    <a href="#" className="text-sm  leading-6 text-white mr-3 bg-green-700 hover:bg-green-900 p-3 rounded-lg font-bold	">
                     Profil Admin
                     </a>
                     <a href="/gestion-actus" className="text-sm font-semibold leading-6 text-gray-900">

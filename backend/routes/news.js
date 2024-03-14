@@ -30,21 +30,35 @@ router.get('/:id', (req, res) => {
 });
 
 
+
 router.post('/add-news', (req, res) => {
     try {
+        const currentDate = new Date().toISOString().slice(0, 10);
+
         const newsData = getNewsData();
-        const newNews = req.body;
+
+        const lastId = newsData.length > 0 ? newsData[newsData.length - 1].id : 0;
+
+        const newNews = {
+            id: lastId + 1,
+            title: req.body.title,
+            content: req.body.content,
+            author: req.body.author,
+            date: currentDate,
+            image: req.body.image
+        };
+
         newsData.push(newNews);
+
         fs.writeFileSync('../backend/news.json', JSON.stringify(newsData, null, 2));
-        res.status(201).json({ message: 'News added successfully' });
+
+        res.status(201).json({ message: 'News added successfully', id: newNews.id });
     } catch (error) {
         console.error('Error adding news:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
-
-
 function getNewsData() {
     const rawData = fs.readFileSync('../backend/news.json');
     return JSON.parse(rawData);
@@ -55,7 +69,6 @@ function getNewsData() {
     return JSON.parse(rawData);
 }
 
-// Helper function to write news data to JSON file
 function writeNewsData(newsData) {
     fs.writeFileSync('../backend/news.json', JSON.stringify(newsData, null, 2));
 }

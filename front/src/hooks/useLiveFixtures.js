@@ -1,23 +1,33 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useLiveMatches = () => {
-    const [matches, setMatches] = useState([]);
+const useLiveFixtures = () => {
+  const [fixtures, setFixtures] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchLiveMatches = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/live-matches');
-                setMatches(response.data);
-            } catch (error) {
-                console.error('Error fetching live matches:', error);
-            }
-        };
+  useEffect(() => {
+    const fetchFixtures = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get('http://localhost:3000/footballapi/direct');
+        setFixtures(response.data.response);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
 
-        fetchLiveMatches();
-    }, []);
+    fetchFixtures();
 
-    return matches;
+    // Cleanup function
+    return () => {
+      // cleanup logic here
+    };
+  }, []);
+  console.log(fixtures);
+  return { fixtures, loading, error };
 };
 
-export default useLiveMatches;
+export default useLiveFixtures;
