@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const router = express.Router();
 
-app.use('/live-matches', liveMatchesRouter);
+app.use('/footballapi', liveMatchesRouter);
 
 app.use('/auth', authRouter);
 

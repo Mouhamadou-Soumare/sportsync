@@ -69,6 +69,7 @@ function AddNewsForm() {
                       value={formData.content}
                       onChange={handleInputChange}
                       className="block w-full rounded-md border-1 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      required
                     />
                   </div>
 
@@ -83,10 +84,11 @@ function AddNewsForm() {
                       value={formData.author}
                       onChange={handleInputChange}
                       className="block w-full border-2 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                    />
+                      required
+                   />
                   </div>
 
-                  <div className="col-span-full">
+                  {/* <div className="col-span-full">
                     <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
                       Date
                     </label>
@@ -98,7 +100,7 @@ function AddNewsForm() {
                       onChange={handleInputChange}
                       className="block w-full border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     />
-                  </div>
+                  </div> */}
 
                   <div className="col-span-full">
                     <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">

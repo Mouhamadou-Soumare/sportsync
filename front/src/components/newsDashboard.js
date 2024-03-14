@@ -33,7 +33,7 @@ function NewsDashboard() {
             </p>
           </div>
           <Link to={`/add-news`}
-            className="text-white mr-3 bg-green-950 p-3 rounded-lg font-bold">
+            className="text-white mr-3 bg-green-700 hover:bg-green-900 p-3 rounded-lg font-bold">
               Ajouter une Actu
           </Link>
         </div>
