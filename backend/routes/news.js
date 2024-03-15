@@ -45,7 +45,7 @@ router.post('/add-news', (req, res) => {
             content: req.body.content,
             author: req.body.author,
             date: currentDate,
-            image: req.body.image
+            image: "http://localhost:3000/assets/mbappe_real.png"
         };
 
         newsData.push(newNews);

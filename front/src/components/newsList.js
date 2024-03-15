@@ -100,7 +100,7 @@ export default function NewsList() {
                     </a>
                   </h3>
                   <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.content}</p>
-                  <Link className="bg-green-700 hover:bg-green-900 p-1 rounded-lg font-bold mt-4 text-white text-center text-bold" to={`/news/${index}`}>Voir les détails</Link>
+                  <Link className="bg-green-700 hover:bg-green-900 p-1 rounded-lg font-bold mt-4 text-white text-center text-bold" to={`/news/${post.id}`}>Voir les détails</Link>
 
                 </div>
                 <div className="relative mt-8 flex items-center gap-x-4">
@@ -128,8 +128,8 @@ export default function NewsList() {
             <button
               key={i}
               onClick={() => paginate(i + 1)}
-              className={`bg-gray-900 text-white px-4 py-2 rounded-md mr-2 ${
-                currentPage === i + 1 && 'bg-gray-700'
+              className={`bg-green-700 text-white px-4 py-2 rounded-md mr-2 ${
+                currentPage === i + 1 && 'bg-green-900'
               }`}
             >
               {i + 1}

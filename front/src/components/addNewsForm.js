@@ -22,7 +22,7 @@ function AddNewsForm() {
     axios.post(`http://localhost:3000/news/add-news`, formData)
       .then(response => {
         console.log('News updated successfully:', response.data);
-        history.push(`/news`);
+        history.push(`/allnews`);
       })
       .catch(error => {
         console.error('Error updating news:', error);
