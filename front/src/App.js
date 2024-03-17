@@ -1,3 +1,4 @@
+import { BrowserRouter, Switch, Route,} from "react-router-dom";
 import './App.css';
 import Navbar from './components/navbar';
 import Home from "./pages/home";
@@ -5,11 +6,7 @@ import Login from './components/adminLogin';
 import NewsPage from './pages/newsPage';
 import NewsDetails from './components/newsDetails';
 import NewsDashboard from './components/newsDashboard';
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-} from "react-router-dom";
+import ContactForm from './components/contactForm';
 import UpdateNewsForm from './components/updateNewsForm';
 import AddNewsForm from './components/addNewsForm';
 import Error404 from './components/404';
@@ -39,6 +36,9 @@ function App() {
         </Route>
         <Route exact path="/add-news">
           <AddNewsForm />
+        </Route>
+        <Route exact path="/contact">
+          <ContactForm />
         </Route>
         <Route path="*">
           <Error404 />
