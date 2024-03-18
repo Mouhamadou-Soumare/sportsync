@@ -18,7 +18,6 @@ router.get('/:id', (req, res) => {
         const newsData = getNewsData();
         const news = newsData.find(news => news.id.toString() === id.toString());
 
-        console.log(news);
         if (!news) {
             return res.status(404).json({ message: 'News not found' });
         }

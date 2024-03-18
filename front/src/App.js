@@ -13,6 +13,8 @@ import {
 import UpdateNewsForm from './components/updateNewsForm';
 import AddNewsForm from './components/addNewsForm';
 import Error404 from './components/404';
+import AllFixtures from './components/allFixtures';
+import AllTopScorers from './components/allTopScorers';
 
 function App() {
   return (
@@ -39,6 +41,12 @@ function App() {
         </Route>
         <Route exact path="/add-news">
           <AddNewsForm />
+        </Route>
+        <Route exact path="/allfixtures">
+          <AllFixtures />
+        </Route>
+        <Route exact path="/alltopscorers">
+          <AllTopScorers />
         </Route>
         <Route path="*">
           <Error404 />

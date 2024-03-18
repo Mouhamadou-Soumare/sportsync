@@ -6,6 +6,8 @@ import xabiA from "../assets/actushomepage/xabialonso.jpg";
 import olympiquemarseille from "../assets/actushomepage/om-auba.jpg";
 
 import InPlayFixtures from "../components/inPlayFixtures";
+import TopScorers from "../components/topScorersHome";
+
 export default function Homepage() {
 
   return (
@@ -125,7 +127,7 @@ export default function Homepage() {
                 </div>
               </div>
               <InPlayFixtures/>
-
+              <TopScorers/>
             </div>
           </div>
         </div>

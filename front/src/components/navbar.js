@@ -5,8 +5,8 @@ import logo from "../assets/sportSyncLogoBlack1.png"
 import Cookies from 'js-cookie';
 
 const navigation = [
-  { name: 'Match en direct', href: '#' },
-  { name: 'Meilleurs buteurs', href: '#' },
+  { name: 'Match en direct', href: 'allfixtures' },
+  { name: 'Meilleurs buteurs', href: 'alltopscorers' },
   { name: 'Actualités', href: '/allnews' },
   { name: 'Nous contacter', href: '#' },
 ]
