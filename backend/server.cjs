@@ -3,9 +3,9 @@ const { Resend } = require('resend');
 const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
-const liveMatchesRouter = require('./routes/apifootball'); 
-const authRouter = require('./routes/authentication');
-const newsRouter = require('./routes/jsonactus');
+const liveMatchesRouter = require('./routes/apifootball.cjs'); 
+const authRouter = require('./routes/authentication.cjs');
+const newsRouter = require('./routes/jsonactus.cjs');
 const path = require('path'); 
 
 const app = express();
