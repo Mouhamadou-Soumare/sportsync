@@ -21,9 +21,7 @@ const useGetTopScorers = () => {
 
     fetchTopScorers();
 
-    // Cleanup function
     return () => {
-      // cleanup logic here
     };
   }, []);
 

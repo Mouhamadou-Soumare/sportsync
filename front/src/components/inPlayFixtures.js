@@ -11,7 +11,7 @@ function InPlayFixtures() {
 
       <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {fixtures.slice(0, 6).map((fixture) => (
-    // Vérifier si le statut du match est différent de "FT" (Full Time)
+
     fixture.fixture.status.short !== "FT" && (
         <div key={fixture.fixture.id} className="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
             <dt>

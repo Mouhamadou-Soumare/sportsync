@@ -21,9 +21,7 @@ const useLiveFixtures = () => {
 
     fetchFixtures();
 
-    // Cleanup function
     return () => {
-      // cleanup logic here
     };
   }, []);
   return { fixtures, loading, error };
