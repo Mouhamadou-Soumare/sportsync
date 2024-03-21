@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "type": "module", 
   "description": "Package node de l'exercice todo list cours 1 NodeJS",
-  "main": "server.cjs",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.cjs"
+    "start": "nodemon server.js"
   },
   "author": "Mouhamadou Soumare",
   "license": "ISC",

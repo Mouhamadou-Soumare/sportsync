@@ -1,6 +1,7 @@
-const express = require('express');
+import { readFileSync, writeFileSync } from 'fs';
+import express from 'express';
+
 const router = express.Router();
-const fs = require('fs');
 
 router.get('/list-all', (req, res) => {
     try {
@@ -28,8 +29,6 @@ router.get('/:id', (req, res) => {
     }
 });
 
-
-
 router.post('/add-news', (req, res) => {
     try {
         const currentDate = new Date().toISOString().slice(0, 10);
@@ -49,7 +48,7 @@ router.post('/add-news', (req, res) => {
 
         newsData.push(newNews);
 
-        fs.writeFileSync('../backend/news.json', JSON.stringify(newsData, null, 2));
+        writeNewsData(newsData);
 
         res.status(201).json({ message: 'News added successfully', id: newNews.id });
     } catch (error) {
@@ -59,17 +58,12 @@ router.post('/add-news', (req, res) => {
 });
 
 function getNewsData() {
-    const rawData = fs.readFileSync('../backend/news.json');
-    return JSON.parse(rawData);
-}
-
-function getNewsData() {
-    const rawData = fs.readFileSync('../backend/news.json');
+    const rawData = readFileSync('../backend/news.json', 'utf-8');
     return JSON.parse(rawData);
 }
 
 function writeNewsData(newsData) {
-    fs.writeFileSync('../backend/news.json', JSON.stringify(newsData, null, 2));
+    writeFileSync('../backend/news.json', JSON.stringify(newsData, null, 2));
 }
 
 router.delete('/delete/:id', (req, res) => {
@@ -98,25 +92,22 @@ router.delete('/delete/:id', (req, res) => {
     }
 });
 
-
 router.put('/update/:id', (req, res) => {
     const id = req.params.id;
     try {
-      const newsData = getNewsData();
-      const index = newsData.findIndex(news => news.id.toString() === id.toString());
-      if (index === -1) {
-        return res.status(404).json({ message: 'News not found' });
-      }
-      const updatedNews = { ...newsData[index], ...req.body };
-      newsData[index] = updatedNews;
-      fs.writeFileSync('../backend/news.json', JSON.stringify(newsData, null, 2));
-      res.status(200).json({ message: 'News updated successfully', news: updatedNews });
+        const newsData = getNewsData();
+        const index = newsData.findIndex(news => news.id.toString() === id.toString());
+        if (index === -1) {
+            return res.status(404).json({ message: 'News not found' });
+        }
+        const updatedNews = { ...newsData[index], ...req.body };
+        newsData[index] = updatedNews;
+        writeNewsData(newsData);
+        res.status(200).json({ message: 'News updated successfully', news: updatedNews });
     } catch (error) {
-      console.error('Error updating news:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+        console.error('Error updating news:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-  
 
-
-module.exports = router;
+export default router;

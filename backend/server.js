@@ -1,29 +1,24 @@
-const { Resend } = require('resend');
-
-const axios = require('axios');
-const express = require('express');
-const cors = require('cors');
-const liveMatchesRouter = require('./routes/apifootball.cjs'); 
-const authRouter = require('./routes/authentication.cjs');
-const newsRouter = require('./routes/jsonactus.cjs');
-const path = require('path'); 
+import fs from 'fs/promises'; // Utiliser fs.promises pour les opérations asynchrones sur le système de fichiers
+import express from 'express';
+import cors from 'cors';
+import { Resend } from 'resend';
+import liveMatchesRouter from './routes/apifootball.js';
+import authRouter from './routes/authentication.js';
+import * as newsRouter from './routes/jsonactus.js'; // Importer toutes les fonctionnalités exportées de jsonactus.js
+import path from 'path';
 
 const app = express();
 const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(new URL('.', import.meta.url).pathname, 'public'))); 
 
 const router = express.Router();
 
 app.use('/footballapi', liveMatchesRouter);
-
 app.use('/auth', authRouter);
-
-app.use('/news', newsRouter);
-
-
+app.use('/news', newsRouter.default); 
 
 app.use((err, req, res, next) => {
     console.error(err);
@@ -32,21 +27,18 @@ app.use((err, req, res, next) => {
 
 const asyncHandler = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
 
-
-//const resend = new Resend('re_cCVh2WoF_6trY1PNSKnq2ixPLDm768HDu');
 const resend = new Resend('re_c96X2TME_JchgPHgohxe2ZayAuHyGTsgY');
 app.post('/contact', async (req, res) => {
     try {
         const { from, to, subject, html } = req.body;
 
-        // Assurez-vous que les champs nécessaires sont présents
         if (!from || !to || !subject || !html) {
             return res.status(400).json({ error: 'Missing required fields' });
         }
 
         await resend.emails.send({
             from: `Acme <${from}>`,
-            to: [to], // Assurez-vous que 'to' est un tableau
+            to: [to],
             subject: subject,
             html: html,
         });
@@ -58,10 +50,7 @@ app.post('/contact', async (req, res) => {
     }
 });
 
-
 app.use('/', router);
-
-
 
 app.listen(PORT, function (err) {
     if (err) console.log(err);
