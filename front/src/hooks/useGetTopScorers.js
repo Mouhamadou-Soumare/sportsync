@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useLiveFixtures = () => {
-  const [fixtures, setFixtures] = useState([]);
+const useGetTopScorers = () => {
+  const [topScorers, setTopScorers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchFixtures = async () => {
+    const fetchTopScorers = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:3000/footballapi/direct');
-        setFixtures(response.data.response);
+        const response = await axios.get('http://localhost:3000/footballapi/topscorers');
+        setTopScorers(response.data); 
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -19,12 +19,13 @@ const useLiveFixtures = () => {
       }
     };
 
-    fetchFixtures();
+    fetchTopScorers();
 
     return () => {
     };
   }, []);
-  return { fixtures, loading, error };
+
+  return { topScorers, loading, error };
 };
 
-export default useLiveFixtures;
+export default useGetTopScorers;

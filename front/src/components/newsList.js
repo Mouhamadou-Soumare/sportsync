@@ -35,12 +35,10 @@ export default function NewsList() {
   );
 
 
-  // Pagination
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filteredNews.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Changer de page
   const paginate = pageNumber => setCurrentPage(pageNumber);
   
   return (
@@ -58,7 +56,7 @@ export default function NewsList() {
             placeholder="Rechercher par titre..."
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
-            className="w-full h-16 border-2 border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
+            className="w-full h-16 border-2 p-6 border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500"
           />
 
           <button
