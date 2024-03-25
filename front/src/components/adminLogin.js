@@ -12,7 +12,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/auth/login', { username, password });
+      const response = await axios.post('https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app/auth/login', { username, password });
       Cookies.set('auth_token', response.data.token);
       console.log('Authentication successful:', response.data);
       history.push('/'); 
