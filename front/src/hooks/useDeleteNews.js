@@ -9,7 +9,7 @@ function useDeleteNews() {
     setLoading(true);
     setError(null);
     try {
-      await axios.delete(`http://localhost:3000/news/delete/${id}`);
+      await axios.delete(`https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app/news/delete/${id}`);
       setLoading(false);
     } catch (error) {
       setError(error);

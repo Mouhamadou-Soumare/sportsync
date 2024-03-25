@@ -17,7 +17,7 @@ function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3000/contact`, formData)
+    axios.post(`https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app/contact`, formData)
       .then(response => {
         console.log('Contact send:', response.data);
         history.push(`/`);

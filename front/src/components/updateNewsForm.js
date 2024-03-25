@@ -14,7 +14,7 @@ function UpdateNewsForm() {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/news/${id}`)
+    axios.get(`https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app/news/${id}`)
       .then(response => {
         setFormData(response.data);
       })
@@ -29,7 +29,7 @@ function UpdateNewsForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:3000/news/update/${id}`, formData)
+    axios.put(`https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app/news/update/${id}`, formData)
       .then(response => {
         console.log('News updated successfully:', response.data);
         history.push(`/news/${id}`);

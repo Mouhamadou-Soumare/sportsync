@@ -10,7 +10,7 @@ const useGetTopScorers = () => {
     const fetchTopScorers = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:3000/footballapi/topscorers');
+        const response = await axios.get('https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app//footballapi/topscorers');
         setTopScorers(response.data); 
         setLoading(false);
       } catch (error) {

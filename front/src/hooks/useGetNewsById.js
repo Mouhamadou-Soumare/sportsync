@@ -9,7 +9,7 @@ function useGetNewsById(id) {
   useEffect(() => {
     const fetchNewsById = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/news/${id}`);
+        const response = await axios.get(`https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app//news/${id}`);
         setNews(response.data);
         setLoading(false);
       } catch (error) {

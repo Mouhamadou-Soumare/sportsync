@@ -11,7 +11,7 @@ const useGetStandings = (initialLeagueId) => {
     const fetchStandings = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:3000/footballapi/standings/${leagueId}`);
+        const response = await axios.get(`https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app/footballapi/standings/${leagueId}`);
         setStandings(response.data.response);
         setLoading(false);
       } catch (error) {

@@ -10,7 +10,7 @@ const useLiveFixtures = () => {
     const fetchFixtures = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:3000/footballapi/direct');
+        const response = await axios.get('https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app//footballapi/direct');
         setFixtures(response.data.response);
         setLoading(false);
       } catch (error) {
