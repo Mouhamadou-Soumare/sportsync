@@ -21,9 +21,10 @@ const storage = multer.diskStorage({
   const upload = multer({storage})
 
 
-router.get('/list-all', (req, res) => {
+  router.get('/list-all', async (req, res) => { // Use async here
     try {
-        const newsData = getNewsData();
+        const newsData = await getNewsData();
+        console.log(newsData);
         res.json(newsData);
 
     } catch (error) {
@@ -83,6 +84,7 @@ async function getNewsData() {
     try {
         const response = await axios.get(githubpagenews);
         return response.data;
+        
     } catch (error) {
         console.error('Error retrieving news:', error);
         throw new Error('Unable to fetch news data from GitHub Pages');
