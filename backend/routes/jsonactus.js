@@ -62,6 +62,7 @@ router.post('/add-news',  upload.single('file'), (req, res) => {
             author: req.body.author,
             date: currentDate,
             image: req.file ? "http://localhost:3000/assets/" + req.file.filename : ''
+
         };
 
         newsData.push(newNews);
