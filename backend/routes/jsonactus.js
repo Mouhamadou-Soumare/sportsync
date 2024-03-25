@@ -20,6 +20,26 @@ const storage = multer.diskStorage({
 
   const upload = multer({storage})
 
+  async function getNewsData() {
+    try {
+        const response = await axios.get(githubpagenews);
+        return response.data;
+        
+    } catch (error) {
+        console.error('Error retrieving news:', error);
+        throw new Error('Unable to fetch news data from GitHub Pages');
+    }
+}
+
+async function writeNewsData(newsData) {
+    try {
+        await axios.put(githubpagenews, newsData);
+    } catch (error) {
+        console.error('Error writing news data:', error);
+        throw new Error('Error writing news data');
+    }
+}
+
   router.get('/list-all', async (req, res) => { // Use async here
     try {
         const newsData = await getNewsData();
@@ -79,20 +99,7 @@ router.post('/add-news',  upload.single('file'), (req, res) => {
     }
 });
 
-async function getNewsData() {
-    try {
-        const response = await axios.get(githubpagenews);
-        return response.data;
-        
-    } catch (error) {
-        console.error('Error retrieving news:', error);
-        throw new Error('Unable to fetch news data from GitHub Pages');
-    }
-}
 
-function writeNewsData(newsData) {
-    writeFileSync('../backend/news.json', JSON.stringify(newsData, null, 2));
-}
 
 router.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
