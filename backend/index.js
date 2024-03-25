@@ -41,8 +41,8 @@ app.post('/contact', async (req, res) => {
         }
 
         await resend.emails.send({
-            from: `Acme <${from}>`,
-            to: [to],
+            from: "onboarding@resend.dev",
+            to: to,
             subject: subject,
             html: html,
         });
