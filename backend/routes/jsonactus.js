@@ -6,6 +6,7 @@ import multer from 'multer'; // Importer multer
 
 const router = express.Router();
 
+const githubpagenews = 'https://mouhamadou-soumare.github.io/sportsyncnewsapi/news.json';
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -23,6 +24,7 @@ router.get('/list-all', (req, res) => {
     try {
         const newsData = getNewsData();
         res.json(newsData);
+
     } catch (error) {
         console.error('Error retrieving news:', error);
         res.status(500).json({ error: 'Internal Server Error listing' });
@@ -76,9 +78,14 @@ router.post('/add-news',  upload.single('file'), (req, res) => {
     }
 });
 
-function getNewsData() {
-    const rawData = readFileSync('../backend/news.json', 'utf-8');
-    return JSON.parse(rawData);
+async function getNewsData() {
+    try {
+        const response = await axios.get(GITHUB_PAGES_URL);
+        return response.data;
+    } catch (error) {
+        console.error('Error retrieving news:', error);
+        throw new Error('Unable to fetch news data from GitHub Pages');
+    }
 }
 
 function writeNewsData(newsData) {
