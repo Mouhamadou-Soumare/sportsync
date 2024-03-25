@@ -81,7 +81,7 @@ router.post('/add-news',  upload.single('file'), (req, res) => {
 
 async function getNewsData() {
     try {
-        const response = await axios.get(GITHUB_PAGES_URL);
+        const response = await axios.get(githubpagenews);
         return response.data;
     } catch (error) {
         console.error('Error retrieving news:', error);
