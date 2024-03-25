@@ -20,7 +20,6 @@ const storage = multer.diskStorage({
 
   const upload = multer({storage})
 
-
   router.get('/list-all', async (req, res) => { // Use async here
     try {
         const newsData = await getNewsData();
