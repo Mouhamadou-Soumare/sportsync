@@ -9,7 +9,7 @@ const navigation = [
   { name: 'Match en direct', href: 'allfixtures' },
   { name: 'Meilleurs buteurs', href: 'alltopscorers' },
   { name: 'Actualités', href: '/allnews' },
-  { name: 'Nous contacter', href: '#' },
+  { name: 'Nous contacter', href: '/contact' },
 ]
 
 export default function Navbar (){

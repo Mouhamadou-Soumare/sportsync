@@ -25,7 +25,7 @@ router.get('/list-all', (req, res) => {
         res.json(newsData);
     } catch (error) {
         console.error('Error retrieving news:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).json({ error: 'Internal Server Error listing' });
     }
 });
 
