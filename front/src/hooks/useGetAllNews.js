@@ -8,7 +8,7 @@ function useGetAllNews() {
 
   const fetchNews = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/news/list-all');
+      const response = await axios.get('https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app/news/list-all');
       setNews(response.data);
       setLoading(false);
     } catch (error) {
