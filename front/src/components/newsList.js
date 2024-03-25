@@ -63,7 +63,7 @@ export default function NewsList() {
             className="bg-gray-900 text-white px-4 py-2 rounded-md"
             onClick={toggleSort}
           >
-            {sortByDate === 'desc' ? 'Voir les plus récents' : 'Voir les plus anciens'}
+            {sortByDate === 'desc' ? 'Voir les plus anciens' : 'Voir les plus réçents'}
           </button>
         </div>
 

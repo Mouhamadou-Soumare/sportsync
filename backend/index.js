@@ -4,28 +4,24 @@ import cors from 'cors';
 import { Resend } from 'resend';
 import liveMatchesRouter from './routes/apifootball.js';
 import authRouter from './routes/authentication.js';
-import * as newsRouter from './routes/jsonactus.js'; // Importer toutes les fonctionnalités exportées de jsonactus.js
-import path from 'path';
+import * as newsRouter from './routes/jsonactus.js';
+import path from "path";
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(new URL('.', import.meta.url).pathname, 'public'))); 
-
+app.use(express.static(path.join(__dirname, 'public')));
 const router = express.Router();
 
 app.use('/footballapi', liveMatchesRouter);
 app.use('/auth', authRouter);
 app.use('/news', newsRouter.default); 
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://mangi-client.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-});
 
 
 app.use((err, req, res, next) => {
