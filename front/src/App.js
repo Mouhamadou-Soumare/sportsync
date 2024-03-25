@@ -12,6 +12,8 @@ import AddNewsForm from './components/addNewsForm';
 import Error404 from './components/404';
 import AllFixtures from './components/allFixtures';
 import AllTopScorers from './components/allTopScorers';
+import ActuSliderHomepage from "./components/actuSliderHome";
+import Standings from "./components/standings";
 
 function App() {
   return (
@@ -44,9 +46,15 @@ function App() {
         </Route>
         <Route exact path="/alltopscorers">
           <AllTopScorers />
-        </Route>  
+        </Route>
+        <Route exact path="/classements">
+          <Standings />
+        </Route>    
         <Route exact path="/contact">
           <ContactForm />
+        </Route>
+        <Route exact path="/slider">
+          <ActuSliderHomepage />
         </Route>
         <Route path="*">
           <Error404 />

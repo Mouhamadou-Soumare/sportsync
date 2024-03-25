@@ -10,14 +10,13 @@ app.post('/contact', async (req, res) => {
     try {
         const { from, to, subject, html } = req.body;
 
-        // Assurez-vous que les champs nécessaires sont présents
         if (!from || !to || !subject || !html) {
             return res.status(400).json({ error: 'Missing required fields' });
         }
 
         await resend.emails.send({
             from: `Acme <${from}>`,
-            to: [to], // Assurez-vous que 'to' est un tableau
+            to: [to], 
             subject: subject,
             html: html,
         });

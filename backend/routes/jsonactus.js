@@ -1,7 +1,23 @@
 import { readFileSync, writeFileSync } from 'fs';
 import express from 'express';
+import multer from 'multer'; // Importer multer
+
+
 
 const router = express.Router();
+
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+      return cb(null, "./public/assets")
+    },
+    filename: function (req, file, cb) {
+      return cb(null, `${file.originalname}`)
+    }
+  })
+
+  const upload = multer({storage})
+
 
 router.get('/list-all', (req, res) => {
     try {
@@ -29,7 +45,7 @@ router.get('/:id', (req, res) => {
     }
 });
 
-router.post('/add-news', (req, res) => {
+router.post('/add-news',  upload.single('file'), (req, res) => { 
     try {
         const currentDate = new Date().toISOString().slice(0, 10);
 
@@ -37,13 +53,15 @@ router.post('/add-news', (req, res) => {
 
         const lastId = newsData.length > 0 ? newsData[newsData.length - 1].id : 0;
 
+        console.log(req);
+
         const newNews = {
             id: lastId + 1,
             title: req.body.title,
             content: req.body.content,
             author: req.body.author,
             date: currentDate,
-            image: "http://localhost:3000/assets/mbappe_real.png"
+            image: req.file ? "http://localhost:3000/assets/" + req.file.filename : ''
         };
 
         newsData.push(newNews);

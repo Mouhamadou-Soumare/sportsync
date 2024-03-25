@@ -5,10 +5,43 @@ import yamal from "../assets/actushomepage/yamal.jpg";
 import xabiA from "../assets/actushomepage/xabialonso.jpg";
 import olympiquemarseille from "../assets/actushomepage/om-auba.jpg";
 
+
 import InPlayFixtures from "../components/inPlayFixtures";
 import TopScorers from "../components/topScorersHome";
+import ActuSliderHomepage from "../components/actuSliderHome";
 
+
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import useGetAllNews from "../hooks/useGetAllNews";
 export default function Homepage() {
+  const { news, loading, error } = useGetAllNews();
+  console.log(news);
+  let latestNews = [];
+
+  if (!loading && !error) {
+    // Filtrer les 4 dernières actualités
+    latestNews = news.sort((a, b) => b.id - a.id).slice(0, 5); 
+    
+  } 
+  // Trier les actualités par date de manière décroissante
+console.log(latestNews)
+  // Obtenir l'image de la dernière news
+  const latestNewsImage = latestNews.length > 0 ?    latestNews[0].image : null;
+  const sndlastestNewsImage = latestNews.length > 0 ?    latestNews[1].image : null;
+  const thlastestNewsImage = latestNews.length > 0 ?    latestNews[2].image : null;
+  const fhtlastestNewsImage = latestNews.length > 0 ?    latestNews[3].image : null;
+  const lastlatestNewsImage = latestNews.length > 0 ?    latestNews[4].image : null;
+
+
+  const truncateContent = (content) => {
+    if (content.length > 100) {
+      return content.slice(0, 100) + '...';
+    }
+    return content;
+  };
 
   return (
     <div className="bg-white">
@@ -57,32 +90,16 @@ export default function Homepage() {
               
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                 <div className="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                  <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                    Mbappé direction le Real de Madrid ?
-                  </h1>
-                  <p className="mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                    Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in quis cupidatat mollit aute velit. Et
-                    labore commodo nulla aliqua proident mollit ullamco exercitation tempor. Sint aliqua anim nulla sunt
-                    mollit id pariatur in voluptate cillum.
-                  </p>
-                  <div className="mt-10 flex items-center gap-x-6">
-                    <a
-                      href="#"
-                      className="rounded-md bg-green-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Plus de détails 
-                    </a>
-                    <a href="/allnews" className="text-sm font-semibold leading-6 text-gray-900 hover:text-green-900 ">
-                      Voir toutes les actus<span aria-hidden="true">→</span>
-                    </a>
-                  </div>
+                  
+                 <ActuSliderHomepage/>
+                 
                 </div>
                 
                 <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                   <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                     <div className="relative">
                       <img
-                        src={Mbappe}
+                        src={latestNewsImage}
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -92,7 +109,7 @@ export default function Homepage() {
                   <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                     <div className="relative">
                       <img
-                        src={tirageLdc}
+                        src={sndlastestNewsImage}
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -100,7 +117,7 @@ export default function Homepage() {
                     </div>
                     <div className="relative">
                       <img
-                        src={yamal}
+                        src={thlastestNewsImage}
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -110,7 +127,7 @@ export default function Homepage() {
                   <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                     <div className="relative">
                       <img
-                        src={olympiquemarseille}
+                        src={fhtlastestNewsImage}
                         alt=""
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
@@ -118,7 +135,7 @@ export default function Homepage() {
                     </div>
                     <div className="relative">
                       <img
-                        src={xabiA}
+                        src={lastlatestNewsImage}
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />

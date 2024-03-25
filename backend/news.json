@@ -86,5 +86,29 @@
     "author": "Jayson Black",
     "date": "2024-03-15",
     "image": "http://localhost:3000/assets/mbappe_real.png"
+  },
+  {
+    "id": 12,
+    "title": "Test image ",
+    "content": "Ici fuck le 17",
+    "author": "mOHJA",
+    "date": "2024-03-24",
+    "image": "http://localhost:3000/assets/9gay3iib47da1.webp"
+  },
+  {
+    "id": 13,
+    "title": "Maelys papapap",
+    "content": "ede",
+    "author": "Mouhamadou Soumaresssss",
+    "date": "2024-03-24",
+    "image": "http://localhost:3000/assets/183562.jpg"
+  },
+  {
+    "id": 14,
+    "title": "fez",
+    "content": "dfzfae",
+    "author": "fzfa",
+    "date": "2024-03-24",
+    "image": "http://localhost:3000/assets/242517.jpg"
   }
 ]
