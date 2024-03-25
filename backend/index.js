@@ -1,5 +1,4 @@
-import fs from 'fs/promises'; // Utiliser fs.promises pour les opérations asynchrones sur le système de fichiers
-import express from 'express';
+import fs from 'fs/promises'; 
 import cors from 'cors';
 import { Resend } from 'resend';
 import liveMatchesRouter from './routes/apifootball.js';
