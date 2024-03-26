@@ -28,7 +28,7 @@ function AddNewsForm() {
     formDataWithImage.append('title', formData.title);
     formDataWithImage.append('content', formData.content);
     formDataWithImage.append('author', formData.author);
-    axios.post(`https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app//news/add-news`, formDataWithImage)
+    axios.post(`https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app/news/add-news`, formDataWithImage)
       .then(response => {
         console.log('News updated successfully:', response.data);
         history.push(`/allnews`);

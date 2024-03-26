@@ -4,12 +4,13 @@ import axios from 'axios';
 function useDeleteNews() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const deleteNews = async (id) => {
     setLoading(true);
     setError(null);
     try {
-      await axios.delete(`https://sportsyncserver-git-main-mouhamadousoumares-projects.vercel.app/news/delete/${id}`);
+      await axios.delete(`${backendUrl}/news/delete/${id}`);
       setLoading(false);
     } catch (error) {
       setError(error);

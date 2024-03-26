@@ -2,8 +2,8 @@ import express from 'express';
 import axios from 'axios';
 
 const router = express.Router();
-const API_KEY = '6419a35e0amsh9ceaae77c044f25p1b6faajsn7ec061e70504';
-
+const API_KEY = process.env;
+console.log(API_KEY);
 // async function getFixtures() {
 //     const currentDate = new Date();
 //     const formattedDate = currentDate.toISOString().split('T')[0];

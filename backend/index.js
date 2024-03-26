@@ -1,5 +1,6 @@
 import fs from 'fs/promises'; 
 import express from 'express';
+import dotenv from "dotenv";
 import cors from 'cors';
 import { Resend } from 'resend';
 import liveMatchesRouter from './routes/apifootball.js';
@@ -30,8 +31,9 @@ app.use((err, req, res, next) => {
 });
 
 const asyncHandler = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
+const resendApiKey = process.env.RESEND_API_KEY;
+const resend = new Resend("re_c96X2TME_JchgPHgohxe2ZayAuHyGTsgY");
 
-const resend = new Resend('re_c96X2TME_JchgPHgohxe2ZayAuHyGTsgY');
 app.post('/contact', async (req, res) => {
     try {
         const { from, to, subject, html } = req.body;
