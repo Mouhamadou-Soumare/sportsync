@@ -11,7 +11,7 @@ const githubpagenews = 'https://mouhamadou-soumare.github.io/sportsyncnewsapi/ne
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-      return cb(null, "https://github.com/Mouhamadou-Soumare/sportsyncnewsapi/blob/main/public/assets")
+      return cb(null, "https://github.com/Mouhamadou-Soumare/sportsyncnewsapi/tree/main/public/assets")
     },
     filename: function (req, file, cb) {
       return cb(null, `${file.originalname}`)
